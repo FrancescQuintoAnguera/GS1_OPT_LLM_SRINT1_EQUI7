@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectura de XML</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="capcalera">
+        <h1 class="titol">Montsià30</h1>
+        <select class="desplegable" id="opcions" name="opcions" onchange="selector()">
+            <option value="index.html">Introducció</option>
+            <option value="formularidig.html">Formularo DIG</option>
+            <option value="formulariods.html">Formulari ODS</option>
+            <option value="buscador.html">Buscador</option>
+        </select>
+    </div>
+    <h1>Buscador Empresas</h1>
+    <div class="search-bar">
+        <input type="text" id="buscador" placeholder="Buscar por nombre de empresa..." />
+    </div>
+    <div id="contenidoXML" class="xml-content"></div>
+
+    <script type="text/xml" id="xmlData">
+        <directori_empresa>
+            <empresa>
+                <nom>Pollos Picasso</nom>
+                <address>Avda Pablo Ruiz Picasso</address>
+                <contacte telefon="600000000" email="hola@example.com"></contacte>
+                <tipus>klk mi loko</tipus>
+            </empresa>
+            <empresa>
+                <nom>Deportes Piñana</nom>
+                <address>PiñanaStreet</address>
+                <contacte telefon="600000000" email="hola@example.com"></contacte>
+                <tipus>dinero</tipus>
+            </empresa>
+            <empresa>
+                <nom>Chillout Miralles</nom>
+                <address>Calle Miralles</address>
+                <contacte telefon="600000000" email="hola@example.com"></contacte>
+                <tipus>pikachu</tipus>
+            </empresa>
+            <empresa>
+                <nom>Tienda de flores Mari Juana</nom>
+                <address>Calle que si quiero o que si tengo</address>
+                <contacte telefon="600000000" email="hola@example.com"></contacte>
+                <tipus>planta</tipus>
+            </empresa>
+        </directori_empresa>
+    </script>
+
+    <script>
+        const xmlData = document.getElementById('xmlData').textContent;
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
+        const empresas = Array.from(xmlDoc.getElementsByTagName('empresa'));
+
+        // Mostrar todas las empresas inicialmente
+        mostrarContenidoXML(empresas);
+
+        // Función para mostrar el contenido de las empresas
+        function mostrarContenidoXML(empresas) {
+            const contenidoDiv = document.getElementById('contenidoXML');
+            contenidoDiv.innerHTML = ''; // Limpiar contenido previo
+
+            empresas.forEach((empresa, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.style.marginBottom = '20px';
+
+                let contenido = `<h3>Empresa ${index + 1}</h3>`;
+                Array.from(empresa.children).forEach((child) => {
+                    if (child.tagName === 'contacte') {
+                        const telefon = child.getAttribute('telefon');
+                        const email = child.getAttribute('email');
+                        contenido += `<p><strong>Teléfono:</strong> ${telefon}</p>`;
+                        contenido += `<p><strong>Email:</strong> ${email}</p>`;
+                    } else {
+                        contenido += `<p><strong>${child.tagName}:</strong> ${child.textContent}</p>`;
+                    }
+                });
+
+                itemDiv.innerHTML = contenido;
+                contenidoDiv.appendChild(itemDiv);
+            });
+        }
+
+        // Filtrar empresas al escribir en el buscador
+        document.getElementById('buscador').addEventListener('input', (event) => {
+            const query = event.target.value.toLowerCase();
+
+            // Filtrar empresas cuyo nombre (`nom`) coincida con la búsqueda
+            const empresasFiltradas = empresas.filter((empresa) => {
+                const nombre = empresa.getElementsByTagName('nom')[0].textContent.toLowerCase();
+                return nombre.includes(query);
+            });
+
+            // Actualizar la lista de empresas mostradas
+            mostrarContenidoXML(empresasFiltradas);
+        });
+    </script>
+</body>
+</html>
+
