@@ -6,48 +6,20 @@
     <title>Montsia30</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <script>
-        function formToXml(event) {
-            event.preventDefault(); // Prevenir el envío por defecto del formulario
-
-            // Obtener los elementos del formulario
-            var form = document.getElementById("myForm");
-            const formData = new FormData(form);
-
-            // Crear un documento XML
-            const xmlDoc = document.implementation.createDocument(null, "FormData");
-            const root = xmlDoc.documentElement;
-
-            // Añadir datos del formulario al XML
-            for (const [name, content] of formData.entries()) {
-                const fieldElement = xmlDoc.createElement(name);
-                fieldElement.textContent = content;
-                root.appendChild(fieldElement);
-            }
-
-            // Convertir XML a cadena
-            const serializer = new XMLSerializer();
-            const xmlString = serializer.serializeToString(xmlDoc);
-
-            console.log(xmlString); // Mostrar XML en la consola
-        }
-    </script>
 </head>
-<body class="bodi">
+<body>
     <div class="capcalera">
-        <h1 class="titol">Montsià30</h1>
-        <div>
-            <select class="desplegable" id="opcions" name="opcions" onchange="selector()">
-                <option value="">Formulari DIG</option>
-                <option value="index.html">Introducció</option>
-                <option value="formulariods.html">Formulari ODS</option>
-                <option value="buscador.html">Buscador</option>
-            </select>
-    
-        </div>
+
+        <select class="desplegable" id="opcions" name="opcions" onchange="selector()">
+            <option value="">Formulari DIG</option>
+            <option value="index.html">Introducció</option>
+            <option value="formulariods.html">Formulari ODS</option>
+            <option value="formulariemp.html">Formulari Empreses</option>
+            <option value="buscador.html">Buscador</option>
+        </select>
     </div>
     <div class="cos"><div class="form-cont">
-        <form id="myForm" action="" method="post" onsubmit="formToXml(event)">
+        <form class="text" id="myForm" action="" method="post" onsubmit="formToXml(event)">
             <div class="form_inscripcio">
                 <label>Nom<span>*</span>
                     <input type="text" name="nom" required autocomplete="nom">
@@ -63,6 +35,9 @@
                     <input type="email" name="email" required autocomplete="E-mail">
                 </label>    
             </div>
+            <div>
+                <h2>1.(4.0)</h2>
+            </div>
 			<div class="form_inscripcio">
 				<p>1.1 ESTRATÈGIA 4.0*</p>
 
@@ -75,188 +50,189 @@
 				<input type="radio" name="preguntes_1_pregunta" value="preguntes_1_respostes_3_resposta" required=""> Existeix un pla de millora contínua en I4.0 en tots els nivells i àmbits de l'empresa.<br>
 
 			</div>
-			<div class="form_inscripcio">
-			<label>1.2. INTERIORITZACIÓ DEL CONCEPTE I4.0*</label><p></p>
-
-				<input type="radio" name="preguntes_2_pregunta" value="preguntes_2_respostes_0_resposta" required=""> El concepte "Indústria 4.0" no es coneix dins l'empresa.<br>
-
-				<input type="radio" name="preguntes_2_pregunta" value="preguntes_2_respostes_1_resposta" required=""> El concepte "Indústria 4.0" es tracta només a nivell d'alta direcció i direccions funcionals.<br>
-
-				<input type="radio" name="preguntes_2_pregunta" value="preguntes_2_respostes_2_resposta" required=""> Tota l'organització és conscient de l'impacte de la Indústria 4.0.<br>
-
-				<input type="radio" name="preguntes_2_pregunta" value="preguntes_2_respostes_3_resposta" required=""> Tota l'organització està implicada en la millora a partir de la Indústria 4.0.<br>
-
-			</div>
-			<div class="form_inscripcio">
-				<h2>2. PRODUCTES / SERVEIS</h2>
-			</div>
-			<div class="form_inscripcio">
-				<label>2.1. PRODUCTES*</label><p></p>
-
-				<input type="radio" name="preguntes_4_pregunta" value="preguntes_4_respostes_0_resposta" required=""> S'ofereixen productes tradicionals sense solucions digitals implementades. <br>
-
-				<input type="radio" name="preguntes_4_pregunta" value="preguntes_4_respostes_1_resposta" required=""> Alguns productes estan 'connectats al núvol' amb la incorporació de sensorització.<br>
-
-				<input type="radio" name="preguntes_4_pregunta" value="preguntes_4_respostes_2_resposta" required=""> El portfoli de productes es basa en la connectivitat i les dades. <br>
-
-				<input type="radio" name="preguntes_4_pregunta" value="preguntes_4_respostes_3_resposta" required=""> S'han proposat nous models de negoci gràcies a la digitalització.<br>
-
-			</div>
-			<div class="form_inscripcio">
-				<label>2.2. SEGUIMENT DELS PRODUCTES*</label><p></p>
-
-				<input type="radio" name="preguntes_5_pregunta" value="preguntes_5_respostes_0_resposta" required=""> Un cop venut, es perd el rastre del producte.<br>
-
-				<input type="radio" name="preguntes_5_pregunta" value="preguntes_5_respostes_1_resposta" required=""> Un cop venut, es pot realitzar un seguiment del producte mitjançant sistemes tradicionals.<br>
-
-				<input type="radio" name="preguntes_5_pregunta" value="preguntes_5_respostes_2_resposta" required=""> Un cop venut, es pot realitzar un seguiment automatitzat del producte.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>2.3. SERVEIS*</label><p></p>
-
-			<input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_0_resposta" required=""> No aplica.<br>
-
-			<input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_1_resposta" required=""> S'ofereixen serveis tradicionals sense solucions digitals implementades.<br>
-
-			<input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_2_resposta" required=""> S'ofereixen alguns serveis digitals al núvol i els tradicionals estan millorats amb l'ús de dades.<br>
-
-			<input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_3_resposta" required=""> La cartera de serveis digitals es basa en la connectivitat i les dades.<br>
-
-			<input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_4_resposta" required=""> S'han proposat nous models de negoci gràcies a la digitalització.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>2.4. MANTENIMENT DE PRODUCTES*</label><p></p>
-
-			<input type="radio" name="preguntes_7_pregunta" value="preguntes_7_respostes_0_resposta" required=""> Els productes disposen de manteniment tradicional.<br>
-
-			<input type="radio" name="preguntes_7_pregunta" value="preguntes_7_respostes_1_resposta" required=""> Els productes disposen de manteniment predictiu.<br>
-
-			<input type="radio" name="preguntes_7_pregunta" value="preguntes_7_respostes_2_resposta" required=""> Els productes disposen de capacitat de reparació autònoma.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<h2>3. PROCESSOS PRODUCTIUS</h2>
-			</div>
-			<div class="form_inscripcio">
-			<label>3.1. ELEMENTS DE PRODUCCIÓ*</label><p></p>
-
-			<input type="radio" name="preguntes_9_pregunta" value="preguntes_9_respostes_0_resposta" required=""> La maquinària / eines són específics per a cada operació.<br>
-
-			<input type="radio" name="preguntes_9_pregunta" value="preguntes_9_respostes_1_resposta" required=""> La maquinària / eines són polivalents.<br>
-
-			<input type="radio" name="preguntes_9_pregunta" value="preguntes_9_respostes_2_resposta" required=""> La maquinària / eines són reconfigurables dinàmicament.<br>
-
-			<input type="radio" name="preguntes_9_pregunta" value="preguntes_9_respostes_3_resposta" required=""> La maquinària pot reconfigurar-se autònomament a partir d'un model de simulació.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>3.2. INSTRUCCIONS DE PROCESSOS*</label><p></p>
-
-			<input type="radio" name="preguntes_10_pregunta" value="preguntes_10_respostes_0_resposta" required=""> Els processos són totalment manuals.<br>
-
-			<input type="radio" name="preguntes_10_pregunta" value="preguntes_10_respostes_1_resposta" required=""> Els operaris preparen els processos a executar, s'envien a la maquinària i s'executen autònomament.<br>
-
-			<input type="radio" name="preguntes_10_pregunta" value="preguntes_10_respostes_2_resposta" required=""> Els processos es programen autònomament i els operaris només intervenen en cas d'excepció.<br>
-
-			<input type="radio" name="preguntes_10_pregunta" value="preguntes_10_respostes_3_resposta" required=""> Els processos es programen autònomament i són capaços de resoldre incidències.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>3.3. MONITORITZACIÓ / SUPERVISIÓ*</label><p></p>
-
-			<input type="radio" name="preguntes_11_pregunta" value="preguntes_11_respostes_0_resposta" required=""> La maquinària està supervisada directament per personal de línia. <br>
-
-			<input type="radio" name="preguntes_11_pregunta" value="preguntes_11_respostes_1_resposta" required=""> La maquinària està supervisada per personal de línia amb el suport de sistemes tecnològics.<br>
-
-			<input type="radio" name="preguntes_11_pregunta" value="preguntes_11_respostes_2_resposta" required=""> La maquinària està supervisada per sistemes automàtics que detecten incidències.<br>
-
-			<input type="radio" name="preguntes_11_pregunta" value="preguntes_11_respostes_3_resposta" required=""> La maquinària està supervisada per sistemes automàtics que detecten un comportament fora d'uns patrons considerats correctes o no normals en comparació amb les mesures habituals.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>3.4. ACTUACIÓ DE MANTENIMENT (I)*</label><p></p>
-
-			<input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_0_resposta" required=""> Les accions de manteniment les realitza un tècnic que es desplaça on s'ha generat la incidència.<br>
-
-			<input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_1_resposta" required=""> Les accions de manteniment les realitza un operari amb el recolzament remot d'un tècnic. <br>
-
-			<input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_2_resposta" required=""> Les accions de manteniment les realitza un tècnic de manera remota.<br>
-
-			<input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_3_resposta" required=""> El sistema es manté / repara autònomament. <br>
-
-			<input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_4_resposta" required=""> El sistema es manté / repara autònomament i gestiona les accions que se'n deriven (ordres a servei tècnic, facturació, sol·licitud d'estoc...).<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>3.5. ACTUACIÓ DE MANTENIMENT (II)*</label><p></p>
-
-			<input type="radio" name="preguntes_13_pregunta" value="preguntes_13_respostes_0_resposta" required=""> Les accions de manteniment es realitzen basant-se en el coneixement d'un tècnic. <br>
-
-			<input type="radio" name="preguntes_13_pregunta" value="preguntes_13_respostes_1_resposta" required=""> El sistema proposa recomanacions per tornar al funcionament òptim.<br>
-
-			<input type="radio" name="preguntes_13_pregunta" value="preguntes_13_respostes_2_resposta" required=""> El sistema es manté / repara autònomament. <br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>3.6. DADES*</label><p></p>
-
-			<input type="radio" name="preguntes_14_pregunta" value="preguntes_14_respostes_0_resposta" required=""> No es capturen dades.<br>
-
-			<input type="radio" name="preguntes_14_pregunta" value="preguntes_14_respostes_1_resposta" required=""> Es recopilen dades bàsiques operacionals, en múltiples estàndards i suports d'informació.<br>
-
-			<input type="radio" name="preguntes_14_pregunta" value="preguntes_14_respostes_2_resposta" required=""> Es recopilen dades no estructurades de forma massiva.<br>
-
-			<input type="radio" name="preguntes_14_pregunta" value="preguntes_14_respostes_3_resposta" required=""> Es recopilen dades que permeten modelar processos o simular comportaments en temps real.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<h2>4. ORGANITZACIÓ I PERSONES</h2>
-			</div>
-			<div class="form_inscripcio">
-			<label>4.1. SISTEMES D'INFORMACIÓ*</label><p></p>
-
-			<input type="radio" name="preguntes_16_pregunta" value="preguntes_16_respostes_0_resposta" required=""> L'empresa disposa de sistemes d'informació bàsics i independents.<br>
-
-			<input type="radio" name="preguntes_16_pregunta" value="preguntes_16_respostes_1_resposta" required=""> L'empresa disposa de sistemes de gestió corporatius: ERP, CRM, PLM, MES...<br>
-
-			<input type="radio" name="preguntes_16_pregunta" value="preguntes_16_respostes_2_resposta" required=""> L'empresa té integrats els diferents sistemes de producció i de gestió.<br>
-
-			<input type="radio" name="preguntes_16_pregunta" value="preguntes_16_respostes_3_resposta" required=""> L'empresa té integrats els sistemes propis amb els sistemes de gestió de tercers.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>4.2. DADES DELS SISTEMES D'INFORMACIÓ*</label><p></p>
-
-			<input type="radio" name="preguntes_17_pregunta" value="preguntes_17_respostes_0_resposta" required=""> Les dades estan disponibles només pels usuaris directament implicats. <br>
-
-			<input type="radio" name="preguntes_17_pregunta" value="preguntes_17_respostes_1_resposta" required=""> Les dades són compartides per tota l'organització.<br>
-
-			<input type="radio" name="preguntes_17_pregunta" value="preguntes_17_respostes_2_resposta" required=""> Les dades són compartides amb altres empreses de la cadena de valor.<br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>4.3. PERSONES*</label><p></p>
-			<input type="radio" name="preguntes_18_pregunta" value="preguntes_18_respostes_0_resposta" required=""> No hi ha cap acció específica com a conseqüència de l'impacte de la Indústria 4.0. <br>
-
-			<input type="radio" name="preguntes_18_pregunta" value="preguntes_18_respostes_1_resposta" required=""> S'ha establert un pla específic de coordinació entre els àmbits IT i OT.<br>
-
-			<input type="radio" name="preguntes_18_pregunta" value="preguntes_18_respostes_2_resposta" required=""> Existeix un pla de formació en tecnologies digitals. <br>
-
-			<input type="radio" name="preguntes_18_pregunta" value="preguntes_18_respostes_3_resposta" required=""> S'han incorporat nous perfils específics de tecnologies I4.0. <br>
-
-			</div>
-			<div class="form_inscripcio">
-			<label>4.4. MONITORITZACIÓ DE PERSONES*</label><p></p>
-
-			<input type="radio" name="preguntes_19_pregunta" value="preguntes_19_respostes_0_resposta" required=""> No es fa cap seguiment de l'actuació de les persones.<br>
-
-			<input type="radio" name="preguntes_19_pregunta" value="preguntes_19_respostes_1_resposta" required=""> Les persones es monitoritzen i es fa un anàlisi offline.<br>
-
-			<input type="radio" name="preguntes_19_pregunta" value="preguntes_19_respostes_2_resposta" required=""> Les persones es monitoritzen en temps real. <br>
-
-			</div>
+            <div class="form_inscripcio">
+                <label>1.2. INTERIORITZACIÓ DEL CONCEPTE I4.0*</label><p></p>
+    
+                    <input type="radio" name="preguntes_2_pregunta" value="preguntes_2_respostes_0_resposta" required=""> El concepte "Indústria 4.0" no es coneix dins l'empresa.<br>
+    
+                    <input type="radio" name="preguntes_2_pregunta" value="preguntes_2_respostes_1_resposta" required=""> El concepte "Indústria 4.0" es tracta només a nivell d'alta direcció i direccions funcionals.<br>
+    
+                    <input type="radio" name="preguntes_2_pregunta" value="preguntes_2_respostes_2_resposta" required=""> Tota l'organització és conscient de l'impacte de la Indústria 4.0.<br>
+    
+                    <input type="radio" name="preguntes_2_pregunta" value="preguntes_2_respostes_3_resposta" required=""> Tota l'organització està implicada en la millora a partir de la Indústria 4.0.<br>
+    
+                </div>
+                <div class="form_inscripcio">
+                    <h2>2. PRODUCTES / SERVEIS</h2>
+                </div>
+                <div class="form_inscripcio">
+                    <label>2.1. PRODUCTES*</label><p></p>
+    
+                    <input type="radio" name="preguntes_4_pregunta" value="preguntes_4_respostes_0_resposta" required=""> S'ofereixen productes tradicionals sense solucions digitals implementades. <br>
+    
+                    <input type="radio" name="preguntes_4_pregunta" value="preguntes_4_respostes_1_resposta" required=""> Alguns productes estan 'connectats al núvol' amb la incorporació de sensorització.<br>
+    
+                    <input type="radio" name="preguntes_4_pregunta" value="preguntes_4_respostes_2_resposta" required=""> El portfoli de productes es basa en la connectivitat i les dades. <br>
+    
+                    <input type="radio" name="preguntes_4_pregunta" value="preguntes_4_respostes_3_resposta" required=""> S'han proposat nous models de negoci gràcies a la digitalització.<br>
+                    <p></p>
+                </div>
+                <div class="form_inscripcio">
+                    <label>2.2. SEGUIMENT DELS PRODUCTES*</label><p></p>
+                        
+                    <input type="radio" name="preguntes_5_pregunta" value="preguntes_5_respostes_0_resposta" required=""> Un cop venut, es perd el rastre del producte.<br>
+    
+                    <input type="radio" name="preguntes_5_pregunta" value="preguntes_5_respostes_1_resposta" required=""> Un cop venut, es pot realitzar un seguiment del producte mitjançant sistemes tradicionals.<br>
+    
+                    <input type="radio" name="preguntes_5_pregunta" value="preguntes_5_respostes_2_resposta" required=""> Un cop venut, es pot realitzar un seguiment automatitzat del producte.<br>
+                    <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>2.3. SERVEIS*</label><p></p>
+    
+                <input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_0_resposta" required=""> No aplica.<br>
+    
+                <input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_1_resposta" required=""> S'ofereixen serveis tradicionals sense solucions digitals implementades.<br>
+    
+                <input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_2_resposta" required=""> S'ofereixen alguns serveis digitals al núvol i els tradicionals estan millorats amb l'ús de dades.<br>
+    
+                <input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_3_resposta" required=""> La cartera de serveis digitals es basa en la connectivitat i les dades.<br>
+    
+                <input type="radio" name="preguntes_6_pregunta" value="preguntes_6_respostes_4_resposta" required=""> S'han proposat nous models de negoci gràcies a la digitalització.<br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>2.4. MANTENIMENT DE PRODUCTES*</label><p></p>
+    
+                <input type="radio" name="preguntes_7_pregunta" value="preguntes_7_respostes_0_resposta" required=""> Els productes disposen de manteniment tradicional.<br>
+    
+                <input type="radio" name="preguntes_7_pregunta" value="preguntes_7_respostes_1_resposta" required=""> Els productes disposen de manteniment predictiu.<br>
+    
+                <input type="radio" name="preguntes_7_pregunta" value="preguntes_7_respostes_2_resposta" required=""> Els productes disposen de capacitat de reparació autònoma.<br>
+    
+                </div>
+                <div class="form_inscripcio">
+                <h2>3. PROCESSOS PRODUCTIUS</h2>
+                </div>
+                <div class="form_inscripcio">
+                <label>3.1. ELEMENTS DE PRODUCCIÓ*</label><p></p>
+    
+                <input type="radio" name="preguntes_9_pregunta" value="preguntes_9_respostes_0_resposta" required=""> La maquinària / eines són específics per a cada operació.<br>
+    
+                <input type="radio" name="preguntes_9_pregunta" value="preguntes_9_respostes_1_resposta" required=""> La maquinària / eines són polivalents.<br>
+    
+                <input type="radio" name="preguntes_9_pregunta" value="preguntes_9_respostes_2_resposta" required=""> La maquinària / eines són reconfigurables dinàmicament.<br>
+    
+                <input type="radio" name="preguntes_9_pregunta" value="preguntes_9_respostes_3_resposta" required=""> La maquinària pot reconfigurar-se autònomament a partir d'un model de simulació.<br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>3.2. INSTRUCCIONS DE PROCESSOS*</label><p></p>
+    
+                <input type="radio" name="preguntes_10_pregunta" value="preguntes_10_respostes_0_resposta" required=""> Els processos són totalment manuals.<br>
+    
+                <input type="radio" name="preguntes_10_pregunta" value="preguntes_10_respostes_1_resposta" required=""> Els operaris preparen els processos a executar, s'envien a la maquinària i s'executen autònomament.<br>
+    
+                <input type="radio" name="preguntes_10_pregunta" value="preguntes_10_respostes_2_resposta" required=""> Els processos es programen autònomament i els operaris només intervenen en cas d'excepció.<br>
+    
+                <input type="radio" name="preguntes_10_pregunta" value="preguntes_10_respostes_3_resposta" required=""> Els processos es programen autònomament i són capaços de resoldre incidències.<br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>3.3. MONITORITZACIÓ / SUPERVISIÓ*</label><p></p>
+    
+                <input type="radio" name="preguntes_11_pregunta" value="preguntes_11_respostes_0_resposta" required=""> La maquinària està supervisada directament per personal de línia. <br>
+    
+                <input type="radio" name="preguntes_11_pregunta" value="preguntes_11_respostes_1_resposta" required=""> La maquinària està supervisada per personal de línia amb el suport de sistemes tecnològics.<br>
+    
+                <input type="radio" name="preguntes_11_pregunta" value="preguntes_11_respostes_2_resposta" required=""> La maquinària està supervisada per sistemes automàtics que detecten incidències.<br>
+    
+                <input type="radio" name="preguntes_11_pregunta" value="preguntes_11_respostes_3_resposta" required=""> La maquinària està supervisada per sistemes automàtics que detecten un comportament fora d'uns patrons considerats correctes o no normals en comparació amb les mesures habituals.<br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>3.4. ACTUACIÓ DE MANTENIMENT (I)*</label><p></p>
+    
+                <input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_0_resposta" required=""> Les accions de manteniment les realitza un tècnic que es desplaça on s'ha generat la incidència.<br>
+    
+                <input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_1_resposta" required=""> Les accions de manteniment les realitza un operari amb el recolzament remot d'un tècnic. <br>
+    
+                <input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_2_resposta" required=""> Les accions de manteniment les realitza un tècnic de manera remota.<br>
+    
+                <input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_3_resposta" required=""> El sistema es manté / repara autònomament. <br>
+    
+                <input type="radio" name="preguntes_12_pregunta" value="preguntes_12_respostes_4_resposta" required=""> El sistema es manté / repara autònomament i gestiona les accions que se'n deriven (ordres a servei tècnic, facturació, sol·licitud d'estoc...).<br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>3.5. ACTUACIÓ DE MANTENIMENT (II)*</label><p></p>
+    
+                <input type="radio" name="preguntes_13_pregunta" value="preguntes_13_respostes_0_resposta" required=""> Les accions de manteniment es realitzen basant-se en el coneixement d'un tècnic. <br>
+    
+                <input type="radio" name="preguntes_13_pregunta" value="preguntes_13_respostes_1_resposta" required=""> El sistema proposa recomanacions per tornar al funcionament òptim.<br>
+    
+                <input type="radio" name="preguntes_13_pregunta" value="preguntes_13_respostes_2_resposta" required=""> El sistema es manté / repara autònomament. <br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>3.6. DADES*</label><p></p>
+    
+                <input type="radio" name="preguntes_14_pregunta" value="preguntes_14_respostes_0_resposta" required=""> No es capturen dades.<br>
+    
+                <input type="radio" name="preguntes_14_pregunta" value="preguntes_14_respostes_1_resposta" required=""> Es recopilen dades bàsiques operacionals, en múltiples estàndards i suports d'informació.<br>
+    
+                <input type="radio" name="preguntes_14_pregunta" value="preguntes_14_respostes_2_resposta" required=""> Es recopilen dades no estructurades de forma massiva.<br>
+    
+                <input type="radio" name="preguntes_14_pregunta" value="preguntes_14_respostes_3_resposta" required=""> Es recopilen dades que permeten modelar processos o simular comportaments en temps real.<br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <h2>4. ORGANITZACIÓ I PERSONES</h2>
+                </div>
+                <div class="form_inscripcio">
+                <label>4.1. SISTEMES D'INFORMACIÓ*</label><p></p>
+    
+                <input type="radio" name="preguntes_16_pregunta" value="preguntes_16_respostes_0_resposta" required=""> L'empresa disposa de sistemes d'informació bàsics i independents.<br>
+    
+                <input type="radio" name="preguntes_16_pregunta" value="preguntes_16_respostes_1_resposta" required=""> L'empresa disposa de sistemes de gestió corporatius: ERP, CRM, PLM, MES...<br>
+    
+                <input type="radio" name="preguntes_16_pregunta" value="preguntes_16_respostes_2_resposta" required=""> L'empresa té integrats els diferents sistemes de producció i de gestió.<br>
+    
+                <input type="radio" name="preguntes_16_pregunta" value="preguntes_16_respostes_3_resposta" required=""> L'empresa té integrats els sistemes propis amb els sistemes de gestió de tercers.<br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>4.2. DADES DELS SISTEMES D'INFORMACIÓ*</label><p></p>
+    
+                <input type="radio" name="preguntes_17_pregunta" value="preguntes_17_respostes_0_resposta" required=""> Les dades estan disponibles només pels usuaris directament implicats. <br>
+    
+                <input type="radio" name="preguntes_17_pregunta" value="preguntes_17_respostes_1_resposta" required=""> Les dades són compartides per tota l'organització.<br>
+    
+                <input type="radio" name="preguntes_17_pregunta" value="preguntes_17_respostes_2_resposta" required=""> Les dades són compartides amb altres empreses de la cadena de valor.<br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>4.3. PERSONES*</label><p></p>
+                <input type="radio" name="preguntes_18_pregunta" value="preguntes_18_respostes_0_resposta" required=""> No hi ha cap acció específica com a conseqüència de l'impacte de la Indústria 4.0. <br>
+    
+                <input type="radio" name="preguntes_18_pregunta" value="preguntes_18_respostes_1_resposta" required=""> S'ha establert un pla específic de coordinació entre els àmbits IT i OT.<br>
+    
+                <input type="radio" name="preguntes_18_pregunta" value="preguntes_18_respostes_2_resposta" required=""> Existeix un pla de formació en tecnologies digitals. <br>
+    
+                <input type="radio" name="preguntes_18_pregunta" value="preguntes_18_respostes_3_resposta" required=""> S'han incorporat nous perfils específics de tecnologies I4.0. <br>
+                <p></p>
+                </div>
+                <div class="form_inscripcio">
+                <label>4.4. MONITORITZACIÓ DE PERSONES*</label><p></p>
+    
+                <input type="radio" name="preguntes_19_pregunta" value="preguntes_19_respostes_0_resposta" required=""> No es fa cap seguiment de l'actuació de les persones.<br>
+    
+                <input type="radio" name="preguntes_19_pregunta" value="preguntes_19_respostes_1_resposta" required=""> Les persones es monitoritzen i es fa un anàlisi offline.<br>
+    
+                <input type="radio" name="preguntes_19_pregunta" value="preguntes_19_respostes_2_resposta" required=""> Les persones es monitoritzen en temps real. <br>
+                
+                <p></p>
+                </div>
             <input type="submit" value="Enviar">
         </form>
     </div></div>
